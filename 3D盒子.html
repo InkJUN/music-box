@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D盒子</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .box{
+            margin:200px auto;
+            position: relative;/*相对定位*/
+            transform-style: preserve-3d;/*让父类和子类都保留3D效果*/
+            perspective: 9000px;/*视距*/
+            transform: rotateX(20deg) rotateY(20deg);
+             /*transition: all 3s;*/
+         animation: ACG 5s linear infinite;/*调用动画帧*/
+    }
+    .box div{
+        text-align: center;
+        line-height:100px;
+        position: absolute;/*绝对定位*/
+        top: 0;
+        left: 0;
+    }
+    /*.box:hover{
+        transform: rotateX(380deg) rotateY(380deg);
+    }*/
+        .box:hover div:nth-of-type(1){
+            transform: rotateX(90deg) translateZ(100PX);
+        }
+        .box:hover div:nth-of-type(2){
+            transform: rotateX(-90deg) translateZ(100PX);
+        }
+        .box:hover div:nth-of-type(3){
+            transform: rotateY(90deg) translateZ(100PX);
+        }
+        .box:hover div:nth-of-type(4){
+            transform: rotateY(-90deg) translateZ(100PX);
+        }
+        .box:hover div:nth-of-type(5){
+            transform:translateZ(100PX);
+        }
+        .box:hover div:nth-of-type(6){
+            transform: rotateY(180deg) translateZ(100PX);
+        }
+    .on{
+        background-color: rgba(74, 239, 25, 0.6);
+        transform: rotateX(90deg) translateZ(50PX);/* X轴旋转90度 Z轴平移50px*/
+    }
+    .below{
+        background-color: rgba(255, 12, 44, 0.6);
+        transform: rotateX(-90deg) translateZ(50PX);
+    }
+    .left{
+        background-color: rgba(40, 245, 255, 0.6);
+        transform: rotateY(90deg) translateZ(50PX);/* Y轴旋转90度 Z轴平移50px*/
+    }
+    .right{
+        background-color: rgba(121, 20, 108, 0.6);
+        transform: rotateY(-90deg) translateZ(50PX);/* Y轴逆时针旋转180度 Z轴平移50px*/
+    }
+    .font{
+        background-color: rgba(69, 83, 169, 0.6);
+        transform:translateZ(50PX);/*Z轴平移50px*/
+    }
+    .back{
+        background-color: rgba(169, 167, 38, 0.6);
+        transform: rotateY(180deg) translateZ(50PX);/* Y轴旋转180度 Z轴平移50px*/
+    }
+   @keyframes ACG {/*创建动画帧*/
+        0%{
+           transform: rotateX(20deg) rotateY(20deg);
+        }
+        100%{
+            transform: rotateX(380deg) rotateY(380deg);
+        }
+    }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="on">上面</div>
+    <div class="below">下面</div>
+    <div class="left">左边</div>
+    <div class="right">右边</div>
+    <div class="font">前面</div>
+    <div class="back">后面</div>
+</div>
+</body>
+</html>
